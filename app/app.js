@@ -1,6 +1,14 @@
-var BaseApp = require('rendr/shared/app');
+var BaseApp = require('rendr/shared/app'),
+    syncer = require('rendr/shared/syncer');
 
 module.exports = BaseApp.extend({
+
+  initialize: function() {
+    BaseApp.prototype.initialize.apply(this, arguments);
+
+    syncer.setClientUrlBase(this.get('clientUrlBase'));
+  },
+
   // @client
   start: function() {
     // Show a loading indicator when the app is fetching.

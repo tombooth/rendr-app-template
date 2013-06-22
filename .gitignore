@@ -1,6 +1,10 @@
 node_modules
 public/mergedAssets.js
 app/templates/compiledTemplates.js
+app/templates/__layout.hbs
 public/styles.css
+index.html
+phonegap.zip
+android.apk
 .DS_Store
 npm-debug.log

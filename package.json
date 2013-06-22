@@ -28,7 +28,10 @@
     "grunt-bg-shell": "~2.0.1",
     "nodemon": "~0.7.6",
     "mocha": "~1.9.0",
-    "should": "~1.2.2"
+    "should": "~1.2.2",
+    "grunt-contrib-jade": "~0.7.0",
+    "grunt-contrib-compress": "~0.5.2",
+    "grunt-phonegap-build": "git://github.com/tombooth/grunt-phonegap-build"
   },
   "engines": {
     "node": ">=0.8"

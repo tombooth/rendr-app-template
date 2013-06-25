@@ -3,16 +3,14 @@ var BaseApp = require('rendr/shared/app'),
 
 module.exports = BaseApp.extend({
 
-  initialize: function() {
+  initialize: function(attributes, options) {
     BaseApp.prototype.initialize.apply(this, arguments);
 
-    syncer.setClientUrlBase(this.get('clientUrlBase'));
+    syncer.setClientUrlBase(options ? options.clientUrlBase : '');
   },
 
   // @client
   start: function() {
-    this.router.renderOnFirstRoute = !!this.get('renderOnFirstRoute');
-    
     // Show a loading indicator when the app is fetching.
     this.router.on('action:start', function() { this.set({loading: true});  }, this);
     this.router.on('action:end',   function() { this.set({loading: false}); }, this);

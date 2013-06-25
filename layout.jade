@@ -34,7 +34,7 @@ html(lang="en")
       else
          script.
             (function() {
-               var App = window.App = new (require('app/app'))({
+               var App = window.App = new (require('app/app'))({ }, {
                   clientUrlBase: "#{urlBase}",
                   renderOnFirstRoute: true
                });

@@ -29,7 +29,7 @@ module.exports = function(grunt) {
           'app/templates/__layout.hbs': 'layout.jade'
         }
       },
-      phonegap: {
+      client: {
         options: {
           pretty: true,
           data: function() {
@@ -146,6 +146,16 @@ module.exports = function(grunt) {
           { src: 'index.html', dest: '' },
           { expand: true, cwd: 'public/', src: ['**'], dest: '' }
         ]
+      },
+      chromeapp: {
+        options: {
+          archive: 'chromeapp.zip'
+        },
+        files: [
+          { src: 'manifest.json', dest: '' },
+          { src: 'index.html', dest: '' },
+          { expand: true, cwd: 'public/', src: ['**'], dest: '' }
+        ]
       }
     },
 
@@ -163,6 +173,16 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+
+    simple_crx: {
+      main: {
+        options: {
+          src: '<%=compress.chromeapp.options.archive%>',
+          dest: 'chromeapp.crx',
+          key: 'chromeapp.pem'
+        }
+      }
     }
 
   });
@@ -175,12 +195,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bg-shell');
   grunt.loadNpmTasks('grunt-rendr-stitch');
   grunt.loadNpmTasks('grunt-phonegap-build');
+  grunt.loadNpmTasks('grunt-simple-crx');
 
   grunt.registerTask('compile', ['jade:template', 'handlebars', 'rendr_stitch', 'stylus']);
-  grunt.registerTask('phonegap', ['compile', 'jade:phonegap', 'compress:phonegap', 'phonegap-build']);
+  grunt.registerTask('phonegap', ['compile', 'jade:client', 'compress:phonegap', 'phonegap-build']);
+  grunt.registerTask('chromeapp', ['compile', 'jade:client', 'compress:chromeapp', 'simple_crx']);
 
   // Run the server and watch for file changes
   grunt.registerTask('server', ['bgShell:runNode', 'compile', 'watch']);
+
+  grunt.registerTask('all', ['phonegap', 'chromeapp', 'server']);
 
 
   // Default task(s).

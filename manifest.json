@@ -1,0 +1,15 @@
+{
+  "name": "Rendr Chrome App",
+  "description": "Chrome created from rendr-app-template",
+  "version": "1",
+  "manifest_version": 2,
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "permissions": [
+    "http://*/",
+    "https://*/"
+  ]
+}

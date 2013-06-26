@@ -31,7 +31,8 @@
     "should": "~1.2.2",
     "grunt-contrib-jade": "~0.7.0",
     "grunt-contrib-compress": "~0.5.2",
-    "grunt-phonegap-build": "git://github.com/tombooth/grunt-phonegap-build"
+    "grunt-phonegap-build": "git://github.com/tombooth/grunt-phonegap-build",
+    "grunt-simple-crx": "0.1.0"
   },
   "engines": {
     "node": ">=0.8"

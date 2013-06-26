@@ -4,6 +4,8 @@ app/templates/compiledTemplates.js
 app/templates/__layout.hbs
 public/styles.css
 index.html
+chromeapp.zip
+chromeapp.crx
 phonegap.zip
 android.apk
 .DS_Store
